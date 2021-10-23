@@ -1,0 +1,19 @@
+---
+hetzner_token: HETZNER_CLOUD_TOKEN
+cluster_name: testcloud
+kubeconfig_path: "/cluster/kubeconfig"
+k3s_version: v1.22.2+k3s2
+public_ssh_key_path: "~/.ssh/id_rsa.pub"
+private_ssh_key_path: "~/.ssh/id_rsa"
+ssh_allowed_networks:
+  - 0.0.0.0/0
+verify_host_key: false
+location: nbg1
+schedule_workloads_on_masters: false
+masters:
+  instance_type: cpx11
+  instance_count: 3
+worker_node_pools:
+- name: small
+  instance_type: cpx21
+  instance_count: 2
