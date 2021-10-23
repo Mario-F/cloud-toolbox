@@ -1,5 +1,8 @@
-name: Release
-on: workflow_dispatch
+name: Release-Dryrun
+on:
+  push:
+    branches:
+      - main
 jobs:
   release:
     name: Release
@@ -18,4 +21,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: semantic-release
+        run: semantic-release -d
