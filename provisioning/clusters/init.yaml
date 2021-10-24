@@ -1,0 +1,6 @@
+---
+environments:
+  testcloud:
+    values:
+      - clusters/defaults.yaml
+      - clusters/testcloud.yaml

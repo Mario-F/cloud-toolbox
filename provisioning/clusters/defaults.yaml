@@ -1,0 +1,11 @@
+#
+# Global configurations
+#
+cluster-info:
+  type: k8s
+
+#
+# Helm chart configurations
+#
+metrics-server:
+  installed: false

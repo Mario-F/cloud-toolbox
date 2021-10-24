@@ -1,0 +1,20 @@
+---
+repositories:
+
+  - name: mariof-charts
+    url: https://mario-f.github.io/helm-charts/
+
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+
+  - name: ingress-nginx
+    url: https://kubernetes.github.io/ingress-nginx
+
+  - name: jetstack
+    url: https://charts.jetstack.io
+
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
+
+  - name: grafana
+    url: https://grafana.github.io/helm-charts

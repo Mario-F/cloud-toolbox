@@ -1,0 +1,30 @@
+---
+bases:
+  - clusters/init.yaml
+  - repositories.yaml
+
+---
+helmDefaults:
+  wait: true
+  timeout: 300
+  atomic: true
+  cleanupOnFail: true
+
+---
+templates:
+  default: &default
+    missingFileHandler: Warn
+    installedTemplate: '{{`{{ .Values | get .Release.Name | get "installed" "false" }}`}}'
+  system: &system
+    <<: *default
+    values:
+      - values/{{`{{ .Release.Name }}`}}.yaml
+      - values/{{`{{ .Release.Name }}`}}.yaml.gotmpl
+
+releases:
+
+  - name: metrics-server
+    <<: *system
+    namespace: kube-system
+    chart: bitnami/metrics-server
+    version: 5.10.5

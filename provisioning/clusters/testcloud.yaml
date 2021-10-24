@@ -1,0 +1,5 @@
+cluster-info:
+  type: k3s
+
+metrics-server:
+  installed: true
