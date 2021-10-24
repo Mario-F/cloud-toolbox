@@ -14,7 +14,7 @@ helmDefaults:
 templates:
   default: &default
     missingFileHandler: Warn
-    installedTemplate: '{{`{{ .Values | get .Release.Name | get "installed" "false" }}`}}'
+    installedTemplate: '{{`{{ .Values | get (printf "%s.installed" .Release.Name) "false" }}`}}'
   system: &system
     <<: *default
     values:
