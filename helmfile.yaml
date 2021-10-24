@@ -1,7 +1,7 @@
 ---
 bases:
-  - provisioning/clusters/init.yaml
   - provisioning/repositories.yaml
+  - provisioning/clusters/init.yaml
 
 ---
 helmDefaults:
