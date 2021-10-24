@@ -11,4 +11,8 @@ Deploy a kubernetes cluster:
 
 * [Hetzner k3s Cluster](./test/Setup.md)
 
-Provision the cluster with common services via [Helmfile](./provisioning/Provisioning.md)
+### Provisioning
+
+The provisioning will try to setup any kubernetes cluster with common services as best as possible.
+
+TODO: Example on testcloud

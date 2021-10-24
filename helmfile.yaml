@@ -1,7 +1,7 @@
 ---
 bases:
-  - clusters/init.yaml
-  - repositories.yaml
+  - provisioning/clusters/init.yaml
+  - provisioning/repositories.yaml
 
 ---
 helmDefaults:
@@ -18,8 +18,8 @@ templates:
   system: &system
     <<: *default
     values:
-      - values/{{`{{ .Release.Name }}`}}.yaml
-      - values/{{`{{ .Release.Name }}`}}.yaml.gotmpl
+      - provisioning/values/{{`{{ .Release.Name }}`}}.yaml
+      - provisioning/values/{{`{{ .Release.Name }}`}}.yaml.gotmpl
 
 releases:
 
