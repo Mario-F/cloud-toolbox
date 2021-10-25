@@ -1,5 +1,20 @@
 cluster-info:
   type: k3s
 
+global-config:
+  prometheus:
+    enabled: true
+
 metrics-server:
   installed: true
+
+ingress-default:
+  installed: true
+  additional:
+    config:
+      client-body-buffer-size: 512k
+      proxy-buffer-size: 16k
+    serviceAnnotations:
+      load-balancer.hetzner.cloud/location: nbg1
+      load-balancer.hetzner.cloud/use-private-ip: true
+      load-balancer.hetzner.cloud/disable-private-ingress: true

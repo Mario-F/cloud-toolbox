@@ -1,0 +1,20 @@
+# Values: https://github.com/kubernetes/ingress-nginx/tree/master/charts/ingress-nginx
+---
+{{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
+{{- $addServiceAnnotations := .Values | get "ingress-default.additional.serviceAnnotations" dict }}
+{{- $addConfig := .Values | get "ingress-default.additional.config" dict }}
+
+controller:
+  setAsDefaultIngress: true
+  ingressClass: nginx
+  replicaCount: 2
+  service:
+    type: LoadBalancer
+    annotations: {{ $addServiceAnnotations | toYaml | nindent 6 }}
+  
+  config: {{ $addConfig | toYaml | nindent 4 }}
+  
+  metrics:
+    enabled: {{ $prometheusMonitoring }}
+    serviceMonitor:
+      enabled: {{ $prometheusMonitoring }}

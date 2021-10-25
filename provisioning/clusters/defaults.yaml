@@ -4,8 +4,14 @@
 cluster-info:
   type: k8s
 
+global-config:
+  prometheus:
+    enabled: false
+
 #
 # Helm chart configurations
 #
 metrics-server:
+  installed: false
+ingress-default:
   installed: false

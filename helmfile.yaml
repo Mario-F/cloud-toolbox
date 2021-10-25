@@ -28,3 +28,9 @@ releases:
     namespace: kube-system
     chart: bitnami/metrics-server
     version: 5.10.5
+
+  - name: ingress-default
+    <<: *system
+    namespace: ingress-system
+    chart: ingress-nginx/ingress-nginx
+    version: 4.0.6
