@@ -18,3 +18,19 @@ ingress-default:
       load-balancer.hetzner.cloud/location: nbg1
       load-balancer.hetzner.cloud/use-private-ip: true
       load-balancer.hetzner.cloud/disable-private-ingress: true
+
+# ingress-multi is used to specifiy an infinite number of different ingress
+ingress-multi:
+
+  # Key is used for naming ingress release and should be uniq and not change
+  ingress-special:
+    installed: true
+    class: nginx-special
+    additional:
+      config:
+        client-body-buffer-size: 512k
+        proxy-buffer-size: 16k
+      serviceAnnotations:
+        load-balancer.hetzner.cloud/location: nbg1
+        load-balancer.hetzner.cloud/use-private-ip: true
+        load-balancer.hetzner.cloud/disable-private-ingress: true

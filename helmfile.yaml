@@ -34,3 +34,13 @@ releases:
     namespace: ingress-system
     chart: ingress-nginx/ingress-nginx
     version: 4.0.6
+
+  {{- range $name, $ingress := .Values | get "ingress-multi" dict }}
+  - name: {{ $name }}
+    installed: {{ default "false" $ingress.installed }}
+    namespace: ingress-system
+    chart: ingress-nginx/ingress-nginx
+    version: 4.0.6
+    values:
+      - provisioning/values/ingress-multi.yaml.gotmpl
+  {{- end }}

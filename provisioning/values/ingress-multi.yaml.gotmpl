@@ -1,0 +1,22 @@
+# Values: https://github.com/kubernetes/ingress-nginx/tree/master/charts/ingress-nginx
+---
+{{- $ingInstance := .Values | get (printf "ingress-multi.%s" .Release.Name) }}
+{{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
+{{- $addServiceAnnotations := $ingInstance | get "additional.serviceAnnotations" dict }}
+{{- $addConfig := $ingInstance | get "additional.config" dict }}
+
+controller:
+  ingressClassResource:
+    name: {{ $ingInstance.class }}
+    default: false
+  replicaCount: 2
+  service:
+    type: LoadBalancer
+    annotations: {{ $addServiceAnnotations | toYaml | nindent 6 }}
+  
+  config: {{ $addConfig | toYaml | nindent 4 }}
+  
+  metrics:
+    enabled: {{ $prometheusMonitoring }}
+    serviceMonitor:
+      enabled: {{ $prometheusMonitoring }}
