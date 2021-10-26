@@ -5,8 +5,9 @@
 {{- $addConfig := .Values | get "ingress-default.additional.config" dict }}
 
 controller:
-  setAsDefaultIngress: true
-  ingressClass: nginx
+  ingressClassResource:
+    name: nginx
+    default: true
   replicaCount: 2
   service:
     type: LoadBalancer
