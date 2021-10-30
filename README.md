@@ -5,11 +5,11 @@
 
 This project is a collector for different approaches on provision a kubernetes cluster from nothing to full service.
 
-## Quickstart
+## Create a Cluster
 
-Deploy a kubernetes cluster:
+Create/Prepare a kubernetes cluster:
 
-* [Hetzner k3s Cluster](./test/Setup.md)
+* [Hetzner k3s Cluster](./creating/HetznerK3s.md)
 
 ### Provisioning
 
