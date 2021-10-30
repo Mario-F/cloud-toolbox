@@ -1,0 +1,2 @@
+[testcluster]
+test-node01.test.local ansible_host=10.180.10.71
