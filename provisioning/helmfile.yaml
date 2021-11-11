@@ -1,0 +1,17 @@
+---
+bases:
+  - ./repositories.yaml
+  - ./clusters/init.yaml
+
+---
+helmDefaults:
+  wait: true
+  timeout: 300
+  atomic: true
+  cleanupOnFail: true
+
+---
+helmfiles:
+  - path: ./infra/helmfile.yaml
+    values:
+      - {{ toYaml .Values | nindent 8 }}
