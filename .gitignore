@@ -3,6 +3,7 @@
 
 # temps
 helmfile-*/*
+**/helmfile-*/*
 temp
 
 # credentials
