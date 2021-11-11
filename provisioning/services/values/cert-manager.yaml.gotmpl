@@ -1,0 +1,11 @@
+# Values: https://github.com/jetstack/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
+---
+{{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
+
+installCRDs: true
+
+{{- if $prometheusMonitoring }}
+prometheus:
+  servicemonitor:
+    enabled: true
+{{- end }}
