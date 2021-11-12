@@ -2,5 +2,5 @@
 environments:
   testcloud:
     values:
-      - provisioning/clusters/defaults.yaml
-      - provisioning/clusters/testcloud.yaml
+      - ./clusters/defaults.yaml
+      - ./clusters/testcloud.yaml

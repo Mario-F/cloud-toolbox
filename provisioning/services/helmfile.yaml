@@ -1,0 +1,10 @@
+---
+{{ readFile "../common/templates.yaml" }}
+
+releases:
+
+  - name: cert-manager
+    <<: *system
+    namespace: cert-manager
+    chart: jetstack/cert-manager
+    version: v1.6.1

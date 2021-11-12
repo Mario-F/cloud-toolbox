@@ -1,0 +1,9 @@
+templates:
+  default: &default
+    missingFileHandler: Warn
+    installedTemplate: '{{ .Values | get (printf "%s.installed" .Release.Name) "false" }}'
+  system: &system
+    <<: *default
+    values:
+      - ./values/{{ .Release.Name }}.yaml
+      - ./values/{{ .Release.Name }}.yaml.gotmpl

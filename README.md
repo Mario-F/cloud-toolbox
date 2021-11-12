@@ -15,4 +15,4 @@ Create/Prepare a kubernetes cluster:
 
 The provisioning will try to setup any kubernetes cluster with common services as best as possible.
 
-TODO: Example on testcloud
+Check out the readme [here](./provisioning/README.md)
