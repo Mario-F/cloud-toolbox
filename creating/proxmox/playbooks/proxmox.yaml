@@ -8,11 +8,9 @@
 
     - name: Create new VM with minimal options
       community.general.proxmox_kvm:
-        api_user: "{{ lookup('env', 'PVE_USER') }}@pam"
-        api_password: "{{ lookup('env', 'PVE_PASSWORD') }}"
-        #api_token_id: ansible
-        #api_token_secret: XXXX
         api_host: "{{ lookup('env', 'PVE_HOST') }}"
+        api_user: "{{ lookup('env', 'PVE_USER') }}"
+        api_password: "{{ lookup('env', 'PVE_PASSWORD') }}"
         node: node03
         name: ansible-testvm
         vmid: 9998
