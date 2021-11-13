@@ -11,6 +11,6 @@
         api_host: "{{ lookup('env', 'PVE_HOST') }}"
         api_user: "{{ lookup('env', 'PVE_USER') }}"
         api_password: "{{ lookup('env', 'PVE_PASSWORD') }}"
-        node: node03
+        node: "{{ lookup('env', 'PVE_NODE') }}"
         name: ansible-testvm
         vmid: 9998
