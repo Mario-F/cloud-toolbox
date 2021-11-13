@@ -1,0 +1,14 @@
+---
+{{ readFile "../common/templates.yaml" }}
+{{- $globalPrometheus := .Values | get "global-config.prometheus" dict }}
+
+releases:
+
+  {{- if $globalPrometheus.enabled }}
+  - name: prometheus
+    <<: *system
+    installedTemplate: '{{ `true` }}'
+    namespace: monitoring-system
+    chart: prometheus-community/kube-prometheus-stack
+    version: {{ $globalPrometheus | get "version" "20.0.1" }}
+  {{- end }}

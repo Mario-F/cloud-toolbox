@@ -8,19 +8,25 @@ releases:
     namespace: kube-system
     chart: bitnami/metrics-server
     version: 5.10.5
+    needs:
+      - monitoring-system/prometheus
 
   - name: ingress-default
     <<: *system
     namespace: ingress-system
     chart: ingress-nginx/ingress-nginx
     version: 4.0.6
+    needs:
+      - monitoring-system/prometheus
 
   {{- range $name, $ingress := .Values | get "ingress-multi" dict }}
   - name: {{ $name }}
     installed: {{ default "false" $ingress.installed }}
     namespace: ingress-system
     chart: ingress-nginx/ingress-nginx
-    version: {{ default "4.0.6" $ingress.version }}
+    version: {{ $ingress | get "version" "4.0.6" }}
     values:
       - ./values/ingress-multi.yaml.gotmpl
+    needs:
+      - monitoring-system/prometheus
   {{- end }}

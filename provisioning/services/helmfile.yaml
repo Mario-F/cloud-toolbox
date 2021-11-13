@@ -1,5 +1,6 @@
 ---
 {{ readFile "../common/templates.yaml" }}
+{{- $globalPrometheus := .Values | get "global-config.prometheus" dict }}
 
 releases:
 
@@ -8,3 +9,5 @@ releases:
     namespace: cert-manager
     chart: jetstack/cert-manager
     version: v1.6.1
+    needs:
+      - monitoring-system/prometheus

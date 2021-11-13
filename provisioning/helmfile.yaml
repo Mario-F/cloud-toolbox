@@ -13,6 +13,10 @@ helmDefaults:
 ---
 helmfiles:
 
+  - path: ./monitoring/helmfile.yaml
+    values:
+      - {{ toYaml .Values | nindent 8 }}
+      
   - path: ./infra/helmfile.yaml
     values:
       - {{ toYaml .Values | nindent 8 }}
