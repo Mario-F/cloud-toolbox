@@ -26,3 +26,5 @@ export KUBECONFIG=${PWD}/secure/kubeconfig
 # Delete
 docker run --rm -it -v ${PWD}/secure:/cluster -v ${HOME}/.ssh:/tmp/.ssh vitobotta/hetzner-k3s:v0.4.3 delete-cluster --config-file /cluster/testcloud.yaml
 ```
+
+**Warning!** Keep in mind that created loadbalancer ressources will not deleted and need to cleanup manually!
