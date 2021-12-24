@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.3.0...v1.4.0) (2021-12-24)
+
+
+### Features
+
+* **provisioning:** added hetzner external dns support ([4567db6](https://github.com/Mario-F/cloud-toolbox/commit/4567db65d7c156f2ab6f3b631410be06edde2a5b))
+* **provisioning:** added hetzner webhook for cert-manager ([3f1b66a](https://github.com/Mario-F/cloud-toolbox/commit/3f1b66aa8fb69c6745d5228bd57918ea2721d2ee))
+
 # [1.3.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.2.0...v1.3.0) (2021-12-24)
 
 
