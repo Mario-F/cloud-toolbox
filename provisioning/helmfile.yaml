@@ -1,6 +1,10 @@
 ---
-bases:
-  - ./clusters/init.yaml
+environments:
+  testcloud:
+    values:
+      - ./clusters/defaults.yaml
+      - ./clusters/testcloud.yaml
+      - ./secure/testcloud.yaml
 
 ---
 helmDefaults:
