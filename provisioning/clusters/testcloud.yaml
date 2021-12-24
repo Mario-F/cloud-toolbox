@@ -48,3 +48,7 @@ ingress-multi:
 #
 cert-manager:
   installed: true
+cert-manager-webhook-hetzner:
+  installed: true
+  token: OVERRIDE_IN_SECURE_FILE # Token for access hetzner DNS
+  email: acme@fritschen.net
