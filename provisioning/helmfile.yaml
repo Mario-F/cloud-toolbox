@@ -12,14 +12,14 @@ helmDefaults:
 ---
 helmfiles:
 
-  - path: ./monitoring/helmfile.yaml
+  - path: ./helmfiles/monitoring/helmfile.yaml
     values:
       - {{ toYaml .Values | nindent 8 }}
       
-  - path: ./infra/helmfile.yaml
+  - path: ./helmfiles/infra/helmfile.yaml
     values:
       - {{ toYaml .Values | nindent 8 }}
 
-  - path: ./services/helmfile.yaml
+  - path: ./helmfiles/services/helmfile.yaml
     values:
       - {{ toYaml .Values | nindent 8 }}
