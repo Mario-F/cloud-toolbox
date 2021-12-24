@@ -48,7 +48,13 @@ ingress-multi:
 #
 cert-manager:
   installed: true
+
 cert-manager-webhook-hetzner:
   installed: true
-  token: OVERRIDE_IN_SECURE_FILE # Token for access hetzner DNS
+  token: OVERRIDE_IN_SECURE_FILE # Token for access hetzner DNS (can also set in global-config.hetzner.dnsToken)
   email: acme@fritschen.net
+
+external-dns-hetzner:
+  installed: true
+  token: OVERRIDE_IN_SECURE_FILE # Token for access hetzner DNS (can also set in global-config.hetzner.dnsToken)
+  txtOwnerId: htcl

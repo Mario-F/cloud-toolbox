@@ -1,0 +1,30 @@
+# Values: https://github.com/bitnami/charts/tree/master/bitnami/external-dns
+---
+{{- $config := .Values | get "external-dns-hetzner" }}
+{{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
+{{- $hetznerDnsToken := .Values | get "global-config.hetzner.dnsToken" $config.token }}
+
+provider: hetzner
+policy: sync
+hetzner:
+  token: {{ $hetznerDnsToken }}
+txtOwnerId: {{ $config.txtOwnerId }}
+txtPrefix: {{ $config | get "txtPrefix" "edt" }}
+{{- if $config | get "domainFilters" false }}
+domainFilters:
+  {{- range $domain := $config.domainFilters }}
+  - {{ $domain }}
+  {{- end }}
+{{- end }}
+sources:
+  - service
+  - ingress
+logLevel: {{ $config | get "logLevel" "debug" }}
+interval: {{ $config | get "interval" "60s" }}
+
+{{- if $prometheusMonitoring }}
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+{{- end }}

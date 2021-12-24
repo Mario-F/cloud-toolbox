@@ -28,3 +28,9 @@ releases:
     needs:
       - cert-manager/cert-manager
     disableValidation: true
+
+  - name: external-dns-hetzner
+    <<: *system
+    namespace: external-dns
+    chart: bitnami/external-dns
+    version: 6.0.2
