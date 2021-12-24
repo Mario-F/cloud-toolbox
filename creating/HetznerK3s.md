@@ -17,14 +17,14 @@ vim templates/secure.yaml
 
 ```bash
 # Start
-docker run --rm -it -v ${PWD}/secure:/cluster -v ${HOME}/.ssh:/tmp/.ssh vitobotta/hetzner-k3s:v0.4.3 create-cluster --config-file /cluster/testcloud.yaml
+docker run --rm -it -v ${PWD}/secure:/cluster -v ${HOME}/.ssh:/tmp/.ssh vitobotta/hetzner-k3s:v0.4.8 create-cluster --config-file /cluster/testcloud.yaml
 
 # Kubeconfig
 sudo chown $(id -u):$(id -g) ${PWD}/secure/kubeconfig
 export KUBECONFIG=${PWD}/secure/kubeconfig
 
 # Delete
-docker run --rm -it -v ${PWD}/secure:/cluster -v ${HOME}/.ssh:/tmp/.ssh vitobotta/hetzner-k3s:v0.4.3 delete-cluster --config-file /cluster/testcloud.yaml
+docker run --rm -it -v ${PWD}/secure:/cluster -v ${HOME}/.ssh:/tmp/.ssh vitobotta/hetzner-k3s:v0.4.8 delete-cluster --config-file /cluster/testcloud.yaml
 ```
 
 **Warning!** Keep in mind that created loadbalancer ressources will not deleted and need to cleanup manually!
