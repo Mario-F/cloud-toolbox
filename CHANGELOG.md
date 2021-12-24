@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.2.0...v1.3.0) (2021-12-24)
+
+
+### Features
+
+* **hetzner-k3s:** update vitobotta/hetzner-k3s version ([20309d0](https://github.com/Mario-F/cloud-toolbox/commit/20309d08402425a51a62a5ff22099959e5bfcd9e))
+* **provisioning:** add readme ([07d4122](https://github.com/Mario-F/cloud-toolbox/commit/07d4122ce0416a81b4a4a6d74d7dcfabfde50e15))
+* **provisioning:** moved environments directly into helmfile ([e8849c3](https://github.com/Mario-F/cloud-toolbox/commit/e8849c382679813e7e3a89a020883c29be42bb19))
+* **provisioning:** moved helm repos to sub helmfiles ([a28ce78](https://github.com/Mario-F/cloud-toolbox/commit/a28ce7889dc948af0fb273d420d5ac4d4f44fd7f))
+* **provisioning:** moved subhelmfiles to extra directory ([5e67cfa](https://github.com/Mario-F/cloud-toolbox/commit/5e67cfa15d1d7c56af59ccfe7e8e0360330e5e4e))
+* **tools:** update tool versions ([2d0bfef](https://github.com/Mario-F/cloud-toolbox/commit/2d0bfefd30441af32c16ccca3ec582ed4dfbfccf))
+
 # [1.2.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.1.0...v1.2.0) (2021-12-19)
 
 
