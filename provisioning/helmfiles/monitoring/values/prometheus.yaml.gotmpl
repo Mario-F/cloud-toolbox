@@ -1,4 +1,27 @@
 # Values: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 ---
+{{- $certManagerEnabled := .Values | get "global-config.cert-manager.enabled" false }}
+
 prometheusOperator:
   enabled: true
+
+{{ $prometheusIngress := .Values | get "prometheus.ingress" dict }}
+prometheus:
+  ingress:
+    enabled: {{ $prometheusIngress | get "enabled" false }}
+    annotations:
+      {{- if and ($prometheusIngress | get "auth.username" false) ($prometheusIngress | get "auth.password" false) }}
+      nginx.ingress.kubernetes.io/auth-type: basic
+      nginx.ingress.kubernetes.io/auth-secret: prometheus-ingress-auth
+      {{- end }}
+    path:
+      - /
+    pathType: ImplementationSpecific
+    hosts:
+      - {{ $prometheusIngress.hostname }}
+    {{ if $certManagerEnabled }}
+    tls:
+      - secretName: {{ .Release.Name }}-prometheus-tls
+        hosts:
+          - {{ $prometheusIngress.hostname }}
+    {{- end }}

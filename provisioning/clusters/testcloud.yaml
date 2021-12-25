@@ -5,8 +5,10 @@ cluster-info:
   type: k3s
 
 global-config:
+  cert-manager:
+    enabled: true # This will activate tls on ingress by default 
   prometheus:
-    enabled: true
+    enabled: true # This will activate metrics and serviceMonitors by default
 
 
 #
@@ -41,6 +43,18 @@ ingress-multi:
         load-balancer.hetzner.cloud/location: nbg1
         load-balancer.hetzner.cloud/use-private-ip: true
         load-balancer.hetzner.cloud/disable-private-ingress: true
+
+
+#
+# Monitoring
+#
+prometheus:
+  ingress:
+    enabled: true
+    hostname: prometheus.test.armacloud.de
+    auth: # optional will create basic auth on ingress
+      username: promuser
+      password: OVERRIDE_IN_SECURE_FILE
 
 
 #

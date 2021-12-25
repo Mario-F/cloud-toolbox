@@ -1,11 +1,15 @@
 ---
 {{ readFile "../common/templates.yaml" }}
 {{- $globalPrometheus := .Values | get "global-config.prometheus" dict }}
+{{- $prometheusIngress := .Values | get "prometheus.ingress" dict }}
 
 repositories:
 
   - name: prometheus-community
     url: https://prometheus-community.github.io/helm-charts
+
+  - name: bedag
+    url: https://bedag.github.io/helm-charts
 
 releases:
 
@@ -17,3 +21,10 @@ releases:
     chart: prometheus-community/kube-prometheus-stack
     version: {{ $globalPrometheus | get "version" "20.0.1" }}
   {{- end }}
+
+  - name: prometheus-auth
+    <<: *system
+    installedTemplate: '{{ if and ($prometheusIngress | get "auth.username" false) ($prometheusIngress | get "auth.password" false) }}true{{ else }}false{{ end }}'
+    namespace: monitoring-system
+    chart: bedag/raw
+    version: 1.1.0

@@ -1,0 +1,14 @@
+---
+{{- $prometheusIngress := .Values | get "prometheus.ingress" }}
+ingress:
+  username: {{ $prometheusIngress.auth.username }}
+  password: {{ $prometheusIngress.auth.password }}
+templates:
+  - |
+    apiVersion: v1
+    kind: Secret
+    type: Opaque
+    metadata:
+        name: prometheus-ingress-auth
+    data:
+        auth: {{`{{ (htpasswd .Values.ingress.username .Values.ingress.password) | b64enc | quote }}`}}
