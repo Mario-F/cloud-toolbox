@@ -19,6 +19,12 @@ releases:
     needs:
       - monitoring-system/prometheus
 
+  - name: metallb
+    <<: *system
+    namespace: metallb-system
+    chart: bitnami/metallb
+    version: 2.5.16
+
   - name: ingress-default
     <<: *system
     namespace: ingress-system

@@ -1,0 +1,30 @@
+# Values: https://github.com/bitnami/charts/tree/master/bitnami/metallb/#installing-the-chart
+---
+{{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
+{{- $metallbConfig := .Values | get "metallb" }}
+
+configInline: |-
+  address-pools:
+    {{- range $name, $data := $metallbConfig.pools }}
+    - name: {{ $name }}
+      protocol: layer2
+      auto-assign: {{ $data | get "auto-assign" "false" }}
+      addresses:
+      {{- range $addr := $data.addresses }}
+        - {{ $addr }}
+      {{- end }}
+    {{- end }}
+
+controller:
+  prometheus:
+    serviceMonitor:
+      enabled: {{ $prometheusMonitoring }}
+
+speaker:
+  secretValue: "{{ $metallbConfig.secretValue }}"
+  prometheus:
+    serviceMonitor:
+      enabled: {{ $prometheusMonitoring }}
+
+prometheusRule:
+  enabled: {{ $prometheusMonitoring }}
