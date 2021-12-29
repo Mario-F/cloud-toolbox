@@ -1,0 +1,71 @@
+#
+# Global
+#
+cluster-info:
+  type: rke
+
+global-config:
+  cert-manager:
+    enabled: true # This will activate tls on ingress by default 
+  prometheus:
+    enabled: true # This will activate metrics and serviceMonitors by default
+
+
+#
+# Infra
+#
+ingress-default:
+  installed: true
+  additional:
+    config:
+      client-body-buffer-size: 512k
+      proxy-buffer-size: 16k
+    serviceAnnotations:
+      load-balancer.hetzner.cloud/location: nbg1
+      load-balancer.hetzner.cloud/use-private-ip: true
+      load-balancer.hetzner.cloud/disable-private-ingress: true
+
+# ingress-multi is used to specifiy an infinite number of different ingress
+ingress-multi:
+
+  # Key is used for naming ingress release and should be uniq and not change
+  ingress-special:
+    installed: true
+    class: nginx-special
+    additional:
+      config:
+        client-body-buffer-size: 512k
+        proxy-buffer-size: 16k
+      serviceAnnotations:
+        load-balancer.hetzner.cloud/location: nbg1
+        load-balancer.hetzner.cloud/use-private-ip: true
+        load-balancer.hetzner.cloud/disable-private-ingress: true
+
+
+#
+# Monitoring
+#
+prometheus:
+  ingress:
+    enabled: true
+    hostname: prometheus.test.armacloud.de
+    auth: # optional will create basic auth on ingress
+      username: promuser
+      password: OVERRIDE_IN_SECURE_FILE
+
+
+#
+# Services
+#
+cert-manager:
+  installed: true
+
+cert-manager-webhook-hetzner:
+  installed: true
+  token: OVERRIDE_IN_SECURE_FILE # Token for access hetzner DNS (can also set in global-config.hetzner.dnsToken)
+  email: acme@fritschen.net
+
+external-dns-hetzner:
+  installed: true
+  token: OVERRIDE_IN_SECURE_FILE # Token for access hetzner DNS (can also set in global-config.hetzner.dnsToken)
+  txtOwnerId: htcl

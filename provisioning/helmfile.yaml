@@ -5,6 +5,11 @@ environments:
       - ./clusters/defaults.yaml
       - ./clusters/hcloud-k3s.yaml
       - ./secure/hcloud-k3s.yaml
+  hcloud-bare:
+    values:
+      - ./clusters/defaults.yaml
+      - ./clusters/hcloud-bare.yaml
+      - ./secure/hcloud-bare.yaml
 
 ---
 helmDefaults:
