@@ -1,10 +1,10 @@
 ---
 environments:
-  testcloud:
+  hcloud-k3s:
     values:
       - ./clusters/defaults.yaml
-      - ./clusters/testcloud.yaml
-      - ./secure/testcloud.yaml
+      - ./clusters/hcloud-k3s.yaml
+      - ./secure/hcloud-k3s.yaml
 
 ---
 helmDefaults:
