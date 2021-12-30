@@ -14,10 +14,6 @@ global-config:
 #
 # Infra
 #
-hcloud-cloud-controller-manager:
-  installed: true
-  token: HETZNER_CLOUD_TOKEN
-
 ingress-default:
   installed: true
   additional:
