@@ -28,6 +28,12 @@ releases:
     chart: mlohr/hcloud-cloud-controller-manager
     version: 3.0.0
 
+  - name: hcloud-csi-driver
+    <<: *system
+    namespace: hcloud-system
+    chart: mlohr/hcloud-csi-driver
+    version: 2.0.0
+
   - name: metallb
     <<: *system
     namespace: metallb-system
