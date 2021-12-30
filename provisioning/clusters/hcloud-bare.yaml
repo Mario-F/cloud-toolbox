@@ -14,6 +14,10 @@ global-config:
 #
 # Infra
 #
+hcloud-cloud-controller-manager:
+  installed: true
+  token: HETZNER_CLOUD_TOKEN
+
 ingress-default:
   installed: true
   additional:
@@ -22,7 +26,7 @@ ingress-default:
       proxy-buffer-size: 16k
     serviceAnnotations:
       load-balancer.hetzner.cloud/location: nbg1
-      load-balancer.hetzner.cloud/use-private-ip: true
+      load-balancer.hetzner.cloud/use-private-ip: false
       load-balancer.hetzner.cloud/disable-private-ingress: true
 
 # ingress-multi is used to specifiy an infinite number of different ingress
@@ -30,7 +34,7 @@ ingress-multi:
 
   # Key is used for naming ingress release and should be uniq and not change
   ingress-special:
-    installed: true
+    installed: false
     class: nginx-special
     additional:
       config:

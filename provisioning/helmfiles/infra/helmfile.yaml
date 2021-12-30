@@ -9,6 +9,9 @@ repositories:
   - name: ingress-nginx
     url: https://kubernetes.github.io/ingress-nginx
 
+  - name: mlohr
+    url: https://helm-charts.mlohr.com/
+
 releases:
 
   - name: metrics-server
@@ -18,6 +21,12 @@ releases:
     version: 5.10.5
     needs:
       - monitoring-system/prometheus
+
+  - name: hcloud-cloud-controller-manager
+    <<: *system
+    namespace: hcloud-system
+    chart: mlohr/hcloud-cloud-controller-manager
+    version: 3.0.0
 
   - name: metallb
     <<: *system

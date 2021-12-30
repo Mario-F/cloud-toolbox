@@ -1,0 +1,8 @@
+# Values: https://artifacthub.io/packages/helm/mlohr/hcloud-cloud-controller-manager
+---
+{{- $config := .Values | get "hcloud-cloud-controller-manager" }}
+{{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
+{{- $hetznerCloudToken := .Values | get "global-config.hetzner.cloudToken" $config.token }}
+
+secret:
+  hcloudApiToken: {{ $hetznerCloudToken }}
