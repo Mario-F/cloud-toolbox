@@ -5,8 +5,24 @@
 prometheusOperator:
   enabled: true
 
-{{ $prometheusIngress := .Values | get "prometheus.ingress" dict }}
 prometheus:
+  enabled: true
+
+  {{ $prometheusConfig := .Values | get "prometheus.config" dict }}
+  prometheusSpec:
+    retention: {{ $prometheusConfig | get "retention" "35d" }}
+    {{ $prometheusStorage := $prometheusConfig | get "storage" false }}
+    {{ if $prometheusStorage }}
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: {{ $prometheusStorage.size }}
+    {{ end }}
+
+  {{ $prometheusIngress := .Values | get "prometheus.ingress" dict }}
   ingress:
     enabled: {{ $prometheusIngress | get "enabled" false }}
     annotations:
