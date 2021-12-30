@@ -14,17 +14,6 @@ global-config:
 #
 # Infra
 #
-metallb:
-  installed: true
-  secretValue: CHECK_AT_HELM_CHART
-  pools:
-    static-pool:
-      addresses:
-        - 10.120.1.20-10.120.1.30
-    dynamic-pool:
-      addresses:
-        - 10.120.1.50-10.120.1.100
-
 ingress-default:
   installed: true
   additional:
