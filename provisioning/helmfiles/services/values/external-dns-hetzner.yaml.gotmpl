@@ -2,7 +2,7 @@
 ---
 {{- $config := .Values | get "external-dns-hetzner" }}
 {{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
-{{- $hetznerDnsToken := .Values | get "global-config.hetzner.dnsToken" $config.token }}
+{{- $hetznerDnsToken := $config | get "token" (.Values | get "global-config.hetzner.dnsToken") }}
 
 provider: hetzner
 policy: sync

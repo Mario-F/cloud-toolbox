@@ -2,8 +2,8 @@
 ---
 {{- $config := .Values | get "cert-manager-webhook-hetzner" }}
 {{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
-{{- $hetznerDnsToken := .Values | get "global-config.hetzner.dnsToken" $config.token }}
-{{- $acmeEmail := .Values | get "global-config.email" $config.email }}
+{{- $hetznerDnsToken := $config | get "token" (.Values | get "global-config.hetzner.dnsToken") }}
+{{- $acmeEmail := $config | get "email" (.Values | get "global-config.email") }}
 
 hetzner:
   token: {{ $hetznerDnsToken }}
