@@ -16,7 +16,7 @@ releases:
     <<: *system
     namespace: cert-manager
     chart: jetstack/cert-manager
-    version: v1.6.1
+    version: {{ .Values | get "cert-manager.version" "v1.6.1" }}
     needs:
       - monitoring-system/prometheus
 
@@ -24,7 +24,7 @@ releases:
     <<: *system
     namespace: cert-manager
     chart: mariof-charts/cert-manager-webhook-hetzner
-    version: 1.2.1
+    version: {{ .Values | get "cert-manager-webhook-hetzner.version" "1.2.1" }}
     needs:
       - cert-manager/cert-manager
     disableValidation: true
@@ -33,4 +33,4 @@ releases:
     <<: *system
     namespace: external-dns
     chart: bitnami/external-dns
-    version: 6.0.2
+    version: {{ .Values | get "external-dns-hetzner.version" "6.0.2" }}
