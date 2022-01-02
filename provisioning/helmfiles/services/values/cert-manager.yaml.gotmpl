@@ -1,8 +1,12 @@
 # Values: https://github.com/jetstack/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
 ---
+{{- $config := .Values | get "cert-manager" }}
 {{- $prometheusMonitoring := .Values | get "global-config.prometheus.enabled" false }}
 
 installCRDs: true
+
+ingressShim:
+  {{ toYaml ($config | get "ingressShim" dict) | nindent 2 }}
 
 {{- if $prometheusMonitoring }}
 prometheus:
