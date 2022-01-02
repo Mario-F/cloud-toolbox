@@ -19,7 +19,7 @@ releases:
     installedTemplate: '{{ `true` }}'
     namespace: monitoring-system
     chart: prometheus-community/kube-prometheus-stack
-    version: {{ $globalPrometheus | get "version" "20.0.1" }}
+    version: {{ $globalPrometheus | get "version" "27.0.1" }}
   {{- end }}
 
   - name: prometheus-auth
