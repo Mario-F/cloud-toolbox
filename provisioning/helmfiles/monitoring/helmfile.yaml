@@ -13,7 +13,7 @@ repositories:
 
 releases:
 
-  {{- if $globalPrometheus.enabled }}
+  {{- if $globalPrometheus | get "enabled" false }}
   - name: prometheus
     <<: *system
     installedTemplate: '{{ `true` }}'
