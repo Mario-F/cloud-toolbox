@@ -10,6 +10,11 @@ prometheus:
 
   {{ $prometheusConfig := .Values | get "prometheus.config" dict }}
   prometheusSpec:
+    
+    podMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+
     retention: {{ $prometheusConfig | get "retention" "35d" }}
     {{ $prometheusStorage := $prometheusConfig | get "storage" false }}
     {{ if $prometheusStorage }}
