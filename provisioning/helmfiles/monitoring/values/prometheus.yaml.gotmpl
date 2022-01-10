@@ -46,3 +46,28 @@ prometheus:
         hosts:
           - {{ $prometheusIngress.hostname }}
     {{- end }}
+
+{{ $prometheusGrafana := .Values | get "prometheus.grafana" dict }}
+grafana:
+  enabled: {{ $prometheusGrafana | get "enabled" "false" }}
+  {{- if and ($prometheusGrafana | get "ingress.enabled" false) ($prometheusGrafana | get "enabled" false) }}
+  ingress:
+    enabled: true
+    hosts:
+      - {{ $prometheusGrafana.ingress.hostname }}
+    tls:
+      - secretName: {{ .Release.Name }}-grafana-tls
+        hosts:
+          - {{ $prometheusGrafana.ingress.hostname }}
+  {{- end }}
+  sidecar:
+    dashboards:
+      searchNamespace: ALL
+    datasources:
+      searchNamespace: ALL
+    notifiers:
+      searchNamespace: ALL
+  admin:
+    existingSecret: grafana-auth
+    userKey: admin-user
+    passwordKey: admin-password

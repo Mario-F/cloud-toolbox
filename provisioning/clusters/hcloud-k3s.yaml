@@ -55,6 +55,13 @@ prometheus:
     auth: # optional will create basic auth on ingress
       username: promuser
       password: OVERRIDE_IN_SECURE_FILE
+  grafana:
+    enabled: true
+    username: adminuser
+    password: OVERRIDE_IN_SECURE_FILE
+    ingress:
+      enabled: true
+      hostname: grafana.test.armacloud.de
 
 
 #

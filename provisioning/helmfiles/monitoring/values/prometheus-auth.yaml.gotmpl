@@ -1,8 +1,12 @@
 ---
 {{- $prometheusIngress := .Values | get "prometheus.ingress" }}
+{{- $prometheusGrafana := .Values | get "prometheus.grafana" }}
 ingress:
   username: {{ $prometheusIngress.auth.username }}
   password: {{ $prometheusIngress.auth.password }}
+grafana:
+  username: {{ $prometheusGrafana.username }}
+  password: {{ $prometheusGrafana.password }}
 templates:
   - |
     apiVersion: v1
@@ -12,3 +16,14 @@ templates:
         name: prometheus-ingress-auth
     data:
         auth: {{`{{ (htpasswd .Values.ingress.username .Values.ingress.password) | b64enc | quote }}`}}
+  {{- if $prometheusGrafana | get "enabled" false }}
+  - |
+    apiVersion: v1
+    kind: Secret
+    type: Opaque
+    metadata:
+        name: grafana-auth
+    data:
+        admin-user: {{ `{{ .Values.grafana.username | b64enc | quote }}` }}
+        admin-password: {{ `{{ .Values.grafana.password | b64enc | quote }}` }}
+  {{- end }}
