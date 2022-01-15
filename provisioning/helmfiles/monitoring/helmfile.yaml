@@ -5,6 +5,9 @@
 
 repositories:
 
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
+
   - name: prometheus-community
     url: https://prometheus-community.github.io/helm-charts
 
@@ -12,6 +15,14 @@ repositories:
     url: https://bedag.github.io/helm-charts
 
 releases:
+
+  - name: metrics-server
+    <<: *system
+    namespace: kube-system
+    chart: bitnami/metrics-server
+    version: 5.10.13
+    needs:
+      - monitoring-system/prometheus
 
   {{- if $globalPrometheus | get "enabled" false }}
   - name: prometheus

@@ -14,14 +14,6 @@ repositories:
 
 releases:
 
-  - name: metrics-server
-    <<: *system
-    namespace: kube-system
-    chart: bitnami/metrics-server
-    version: 5.10.5
-    needs:
-      - monitoring-system/prometheus
-
   - name: hcloud-cloud-controller-manager
     <<: *system
     namespace: hcloud-system
