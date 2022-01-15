@@ -1,0 +1,9 @@
+# Values: https://artifacthub.io/packages/helm/rimusz/hostpath-provisioner
+---
+{{- $config := .Values | get "hostpath-provisioner" }}
+
+storageClass:
+  defaultClass: {{ $config | get "default" "true" }}
+  name: {{ $config | get "name" "hostpath" }}
+
+nodeHostPath: {{ $config | get "default" "/mnt/hostpath" }}

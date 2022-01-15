@@ -3,6 +3,9 @@
 
 repositories:
 
+  - name: rimusz
+    url: https://charts.rimusz.net
+
   - name: bitnami
     url: https://charts.bitnami.com/bitnami
 
@@ -13,6 +16,12 @@ repositories:
     url: https://helm-charts.mlohr.com/
 
 releases:
+
+  - name: hostpath-provisioner
+    <<: *system
+    namespace: infra-system
+    chart: rimusz/hostpath-provisioner
+    version: 0.2.13
 
   - name: hcloud-cloud-controller-manager
     <<: *system
