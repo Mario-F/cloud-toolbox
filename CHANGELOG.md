@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Mario-F/cloud-toolbox/compare/v1.5.0...v1.5.1) (2022-01-15)
+
+
+### Bug Fixes
+
+* **tools:** build docker image only for amd64 ([e1bc42b](https://github.com/Mario-F/cloud-toolbox/commit/e1bc42b6bf513e1a816c697ecd865e18c8e5b0e8))
+
 # [1.5.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.4.0...v1.5.0) (2022-01-15)
 
 
