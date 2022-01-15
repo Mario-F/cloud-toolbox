@@ -1,3 +1,31 @@
+# [1.5.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.4.0...v1.5.0) (2022-01-15)
+
+
+### Bug Fixes
+
+* **provisioning:** global-config should not mandatory ([4af419d](https://github.com/Mario-F/cloud-toolbox/commit/4af419db9836142c20a048882d5aff9ea1af96b5))
+* **provisioning:** local values should prefer before global ([fe90e8f](https://github.com/Mario-F/cloud-toolbox/commit/fe90e8f32a7adbef4dace010ecc3bf9b51183c51))
+* **provisioning:** prometheus should select all pod,rules,monitors ([d2e24e2](https://github.com/Mario-F/cloud-toolbox/commit/d2e24e2297e20e47255bb5091dacddd0d3c136e0))
+* **provisioning:** removed hetzner cloud controller for bare ([c31c0e1](https://github.com/Mario-F/cloud-toolbox/commit/c31c0e18e0e79af0e8fe14b79906a0afa4b42f02))
+* **provisioning:** removed metallb from hcloud-bare ([a3db21b](https://github.com/Mario-F/cloud-toolbox/commit/a3db21bbbe7d5f55a83923b569a05b0ac201635c))
+
+
+### Features
+
+* **provisioning:** add storage configs to prometheus ([b77f6cf](https://github.com/Mario-F/cloud-toolbox/commit/b77f6cfc0ac9ff04c507109c0530434a56b2bf50))
+* **provisioning:** added grafana configuration ([eaa7ebe](https://github.com/Mario-F/cloud-toolbox/commit/eaa7ebe007550930fe9a82834625e90158aebcaa))
+* **provisioning:** added hcloud csi storage provider ([9531357](https://github.com/Mario-F/cloud-toolbox/commit/9531357f2d0f5c54fadbea37691d105ab12703e7))
+* **provisioning:** added hcloud-bare config ([3f2844c](https://github.com/Mario-F/cloud-toolbox/commit/3f2844c553f7e829837708fdf96199a10198de19))
+* **provisioning:** added hetzner cloud controller ([86c5468](https://github.com/Mario-F/cloud-toolbox/commit/86c5468f1a7ebcc216a0bc45cb43b86ae0697863))
+* **provisioning:** added hostpath-provisioner ([bce3a77](https://github.com/Mario-F/cloud-toolbox/commit/bce3a77a984784bc2a7b61315a44803e83e061f6))
+* **provisioning:** added metallb ([524bd32](https://github.com/Mario-F/cloud-toolbox/commit/524bd325189ffdefb1e8b1db7b8cc0ba55c82324))
+* **provisioning:** added prom ingress with opt basic auth ([5787994](https://github.com/Mario-F/cloud-toolbox/commit/57879949f4275952b9a93b767d1196dea9dd7932))
+* **provisioning:** make ingressShim configurable ([c6a6ce1](https://github.com/Mario-F/cloud-toolbox/commit/c6a6ce177bf1a13a6d4e912c5d5e21fbbb19b6ff))
+* **provisioning:** make service versions pinnable ([bc8067a](https://github.com/Mario-F/cloud-toolbox/commit/bc8067a619a798e8b009eb6be23fe52a637187d4))
+* **provisioning:** moved metrics-server to monitoring ([72dd7d4](https://github.com/Mario-F/cloud-toolbox/commit/72dd7d4eedf7be0e77247b5e5d503606a74c2554))
+* **provisioning:** renamed testcloud to hcloud-k3s ([8d21af0](https://github.com/Mario-F/cloud-toolbox/commit/8d21af0bf178b4eafd4974a4a74577fffaaa1bb8))
+* **provisioning:** update default kube-prometheus-stack to latest ([0bce5ef](https://github.com/Mario-F/cloud-toolbox/commit/0bce5ef096d05e0ddb0a9fbff66054ea834a1699))
+
 # [1.4.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.3.0...v1.4.0) (2021-12-24)
 
 
