@@ -1,3 +1,3 @@
-# Ansible Collection - mariof.cloud
+# Ansible Collection - mario_f.cloud
 
 Documentation for the collection.
