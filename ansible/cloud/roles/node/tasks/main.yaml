@@ -1,3 +1,4 @@
+# Suited and tested for ubuntu-server at this moment
 ---
 - name: Comment out swap in fstab
   ansible.builtin.lineinfile:
@@ -6,3 +7,5 @@
     line: '# \1'
     backrefs: yes
     state: present
+  notify:
+    - swapoff
