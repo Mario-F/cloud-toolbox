@@ -1,5 +1,11 @@
 # Suited and tested for ubuntu-server at this moment
 ---
+- name: Install packages commonly used and required
+  ansible.builtin.package:
+    name:
+      - open-iscsi # often required by storage providers
+    state: present
+
 - name: Comment out swap in fstab
   ansible.builtin.lineinfile:
     dest: /etc/fstab
@@ -15,3 +21,8 @@
   when: replace_dns
   tags:
     - replace-dns
+
+- ansible.builtin.include_tasks: docker.yml
+  when: use_docker
+  tags:
+    - docker

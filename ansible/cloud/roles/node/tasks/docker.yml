@@ -1,0 +1,34 @@
+---
+- name: Install dependencies
+  ansible.builtin.package:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+    state: present
+
+- name: Add docker gpg key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add docker repo
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+    state: present
+
+- name: Install dependencies
+  ansible.builtin.package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+
+- name: Enable and start docker service
+  ansible.builtin.service:
+    name: docker
+    enabled: yes
+    state: started
