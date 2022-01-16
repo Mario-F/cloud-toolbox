@@ -5,7 +5,7 @@
 namespace: mariof
 
 # The name of the collection. Has the same character restrictions as 'namespace'
-name: cloudnode
+name: cloud
 
 # The version of the collection. Must be compatible with semantic versioning
 version: 1.0.0
@@ -52,10 +52,10 @@ dependencies: {}
 repository: https://github.com/Mario-F/cloud-toolbox
 
 # The URL to any online docs
-documentation: https://github.com/Mario-F/cloud-toolbox/tree/main/creating/cloudnode
+documentation: https://github.com/Mario-F/cloud-toolbox/tree/main/ansible/cloud
 
 # The URL to the homepage of the collection/project
-homepage: https://github.com/Mario-F/cloud-toolbox/tree/main/creating/cloudnode
+homepage: https://github.com/Mario-F/cloud-toolbox/tree/main/ansible/cloud
 
 # The URL to the collection issue tracker
 issues: https://github.com/Mario-F/cloud-toolbox/issues
