@@ -1,0 +1,23 @@
+---
+- name: Stop and disable systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+
+- name: Get stats /etc/resolv.conf
+  ansible.builtin.stat:
+    path: /etc/resolv.conf
+  register: sym
+
+- name: Delete etc/resolv.conf if is symlink
+  ansible.builtin.file:
+    path: /etc/resolv.conf
+    state: absent
+  when: sym.stat.islnk is defined and sym.stat.islnk
+
+- name: Create resolv.conf
+  ansible.builtin.copy:
+    dest: /etc/resolv.conf
+    content: |
+      nameserver {{ dns_host | default(ansible_default_ipv4.gateway) }}

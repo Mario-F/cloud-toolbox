@@ -1,0 +1,3 @@
+---
+swap_off: true
+replace_dns: false # include resolve-dns tasks to replace systemd-resolve with normal resolve.conf setup

@@ -9,3 +9,9 @@
     state: present
   notify:
     - swapoff
+  when: swap_off
+
+- ansible.builtin.include_tasks: replace-dns.yml
+  when: replace_dns
+  tags:
+    - replace-dns
