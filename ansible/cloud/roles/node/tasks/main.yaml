@@ -1,0 +1,8 @@
+---
+- name: Comment out swap in fstab
+  ansible.builtin.lineinfile:
+    dest: /etc/fstab
+    regexp: '(?i)^(/.*swap.*)'
+    line: '# \1'
+    backrefs: yes
+    state: present
