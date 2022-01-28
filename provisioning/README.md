@@ -1,5 +1,7 @@
 # Provisioning
 
+!! DEPRECATED - MOVED TO -> https://github.com/Mario-F/helmfile-templates !!
+
 The provisioning will help your kubernetes cluster to become an fully automated workhorse with just some konfiguration needed.
 
 This is done with [Helmfile](https://github.com/roboll/helmfile) and extensive use of templating in sub helmfiles.
