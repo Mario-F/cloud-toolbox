@@ -23,6 +23,18 @@ controller:
 
   affinity:
     podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app.kubernetes.io/instance
+            operator: In
+            values:
+            - {{ .Release.Name }}
+          - key: app.kubernetes.io/component
+            operator: In
+            values:
+            - controller
+        topologyKey: kubernetes.io/hostname
       preferredDuringSchedulingIgnoredDuringExecution:
       - weight: 1
         podAffinityTerm:
