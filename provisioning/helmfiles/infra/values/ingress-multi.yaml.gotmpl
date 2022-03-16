@@ -6,9 +6,12 @@
 {{- $addConfig := $ingInstance | get "additional.config" dict }}
 
 controller:
+  electionID: {{ $ingInstance.class }}
+  ingressClassByName: true
   ingressClassResource:
-    name: {{ $ingInstance.class }}
     default: false
+    name: {{ $ingInstance.class }}
+    controllerValue: "k8s.io/{{ $ingInstance.class }}"
   replicaCount: 2
   service:
     type: LoadBalancer
