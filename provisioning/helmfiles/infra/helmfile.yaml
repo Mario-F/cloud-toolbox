@@ -6,8 +6,8 @@ repositories:
   - name: rimusz
     url: https://charts.rimusz.net
 
-  - name: bitnami
-    url: https://charts.bitnami.com/bitnami
+  - name: bitnami-pre-2022
+    url: https://raw.githubusercontent.com/bitnami/charts/eb5f9a9513d987b519f0ecd732e7031241c50328/bitnami
 
   - name: ingress-nginx
     url: https://kubernetes.github.io/ingress-nginx
@@ -38,7 +38,7 @@ releases:
   - name: metallb
     <<: *system
     namespace: metallb-system
-    chart: bitnami/metallb
+    chart: bitnami-pre-2022/metallb
     version: 2.5.16
 
   - name: ingress-default
