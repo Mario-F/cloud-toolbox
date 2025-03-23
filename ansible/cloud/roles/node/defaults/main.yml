@@ -1,4 +1,4 @@
 ---
 swap_off: true
 replace_dns: false # include resolve-dns tasks to replace systemd-resolve with normal resolve.conf setup
-use_docker: true
+use_docker: false # dont make docker the default anymore
