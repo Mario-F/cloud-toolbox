@@ -1,3 +1,12 @@
+## [1.6.1](https://github.com/Mario-F/cloud-toolbox/compare/v1.6.0...v1.6.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **tools:** :bug: helmfile repo was moved ([69112ed](https://github.com/Mario-F/cloud-toolbox/commit/69112edab8a9a7080d27a91f592fd7e988a02871))
+* **tools:** add noninteractive install for apt packages ([ecae481](https://github.com/Mario-F/cloud-toolbox/commit/ecae4810dbadae2440af2b262ed6ef437f7c8782))
+* **tools:** install more basic tools ([5aef89d](https://github.com/Mario-F/cloud-toolbox/commit/5aef89d6659220942a126d63b39139776e835442))
+
 # [1.6.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.5.1...v1.6.0) (2025-03-24)
 
 
