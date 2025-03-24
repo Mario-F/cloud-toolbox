@@ -29,7 +29,8 @@ RUN chmod +x install_kustomize.sh
 RUN ./install_kustomize.sh
 RUN mv ./kustomize /usr/local/bin/kustomize
 
-RUN curl -Lo helmfile https://github.com/roboll/helmfile/releases/download/v0.171.0/helmfile_linux_amd64
+RUN curl -Lo helmfile.tar.gz https://github.com/helmfile/helmfile/releases/download/v0.171.0/helmfile_0.171.0_linux_amd64.tar.gz
+RUN tar -zxvf helmfile.tar.gz
 RUN chmod +x ./helmfile
 RUN mv helmfile /usr/local/bin/
 
