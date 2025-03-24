@@ -37,6 +37,9 @@ RUN chsh -s /usr/bin/zsh root
 
 RUN rm -rf /var/lib/apt/lists/*
 
+ENV HISTFILE /root/docker/.zsh_history_cloud-toolbox
+RUN mkdir /root/docker
+
 RUN mkdir /app
 WORKDIR /app
 CMD ["zsh"]
