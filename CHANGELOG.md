@@ -1,3 +1,28 @@
+# [1.6.0](https://github.com/Mario-F/cloud-toolbox/compare/v1.5.1...v1.6.0) (2025-03-24)
+
+
+### Bug Fixes
+
+* bitnami chart workaround ([293fc66](https://github.com/Mario-F/cloud-toolbox/commit/293fc66625fdcb79c55a3177321b347e6133c498))
+* **provisioning:** ingress antiaffinity ([1b4127d](https://github.com/Mario-F/cloud-toolbox/commit/1b4127d66a44dbaefde810939cae6b71298d00e6))
+* **provisioning:** made ingress podAntiAffinity make sense ([40acb23](https://github.com/Mario-F/cloud-toolbox/commit/40acb238f64db2d1d8597fc4483520c233f6dda9))
+* **provisioning:** multi ingress setup was not operable ([f5da499](https://github.com/Mario-F/cloud-toolbox/commit/f5da499d7cf24e39ac02a75d418d9fc9062b3321))
+
+
+### Features
+
+* **ansible:** add swapoff notifier ([cd3d7e3](https://github.com/Mario-F/cloud-toolbox/commit/cd3d7e376e611f25775aa60888faeb253bff6cf3))
+* **ansible:** added conditions and dns replacement ([3a31c50](https://github.com/Mario-F/cloud-toolbox/commit/3a31c50c3d11ab743e89b38b609b151ba51656a6))
+* **ansible:** added docker install ([a5f2b8b](https://github.com/Mario-F/cloud-toolbox/commit/a5f2b8b9fcec0d3143d3649e951069f4a77733ab))
+* **ansible:** added first role task swap ([13f096f](https://github.com/Mario-F/cloud-toolbox/commit/13f096f6696ed7052a5ad9a7b444665fcda967e1))
+* **ansible:** added swapoff handler ([a2d9556](https://github.com/Mario-F/cloud-toolbox/commit/a2d9556f595b3db1709be4b16d93c741e38fcf2f))
+* **ansible:** dont make docker the default install ([0949af5](https://github.com/Mario-F/cloud-toolbox/commit/0949af531e82968c9e05618c7a746e066ebb7d25))
+* **ansible:** moved cloudnode -> cloud ([d55edea](https://github.com/Mario-F/cloud-toolbox/commit/d55edeafb584521f53fcd2c9b5ab121e243e620b))
+* **creating:** added ansible collection ([9f9225c](https://github.com/Mario-F/cloud-toolbox/commit/9f9225cf21898345c0575100e7fd397a57d9ffc6))
+* **creating:** updated galaxy.yml ([978143c](https://github.com/Mario-F/cloud-toolbox/commit/978143c9572a17232a7b07315ed3f0cb0b418d98))
+* **tools:** persist zsh history to docker folder ([f694a27](https://github.com/Mario-F/cloud-toolbox/commit/f694a27d20d5d709eb264f3c75d47cb0f12a2467))
+* **tools:** updated versions ([636dd19](https://github.com/Mario-F/cloud-toolbox/commit/636dd197b89e83e4136a6e39af069a3e74c9611e))
+
 ## [1.5.1](https://github.com/Mario-F/cloud-toolbox/compare/v1.5.0...v1.5.1) (2022-01-15)
 
 
